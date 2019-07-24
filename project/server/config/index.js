@@ -13,6 +13,13 @@ module.exports =  {
     "password": "",
     "url": 'mongodb://localhost/test',
   },
+  "dbProd": {
+    "host": "portfolio-cluster-0a3j5.mongodb.net",
+    "port": "27017",
+    "name": "test",
+    "user": "root",
+    "password": "p3H7HIAbBlzDtE62",
+  },
   "upload": "public/upload",
   "mail": {
     "subject": "Сообщение с сайта-портфолио",

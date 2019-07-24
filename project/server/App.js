@@ -48,7 +48,11 @@ class App {
     return {
       run: () => {
         new Promise((resolve) => {
-          this.mongoose = mongoose.connect(`mongodb://${this.config.db.host}:${this.config.db.port}/${this.config.db.name}`, {useNewUrlParser: true});
+          if(process.env.NODE_ENV === 'production') {
+            this.mongoose = mongoose.connect(`mongodb+srv://${this.config.dbProd.user}:${this.config.dbProd.password}@${this.config.dbProd.host}/${this.config.dbProd.name}?retryWrites=true&w=majority`, {useNewUrlParser: true});
+          } else {
+            this.mongoose = mongoose.connect(`mongodb://${this.config.db.host}:${this.config.db.port}/${this.config.db.name}`, {useNewUrlParser: true});
+          }
           resolve();
         });
       }
