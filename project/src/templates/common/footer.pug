@@ -10,9 +10,12 @@ footer.footer
 								a(href="#").footer-menu__link= item
 			.footer__right
 				ul.socials__list.footer__socials
-					each item in [{name: 'vkontakte', width: '23', height: '13'}, {name: 'github', width: '20', height: '16'}, {name: 'instagram', width: '18', height: '17'}]
+					- var vk = {name: 'vkontakte', width: '31', height: '17', href:'https://vk.com/molodoyrustik'};
+					- var github = {name: 'github', width: '26', height: '22', href:'https://github.com/molodoyrustik'};
+					- var inst = {name: 'instagram', width: '24', height: '22', href:'https://www.instagram.com/molodoy.rustik/'};
+					each item in [vk, github, inst]
 						li.socials__item.footer__socials-item
-							a(href="#" class=` socials__link socials__link--${item.name} footer__socials-link`)
+							a(href=`${item.href}` target='_blank' class=` socials__link socials__link--${item.name} footer__socials-link`)
 								span.socials__text= item.name
 								svg.icon.footer__socials-icon(width=`${item.width}` height=`${item.height}`)
 									use(xlink:href=`#${item.name}`)
