@@ -1,16 +1,16 @@
-global.__DEV__ = false;
+global.__DEV__ = true;
 // __STAGE__
-global.__PROD__ = true;
+global.__PROD__ = false;
 
 module.exports =  {
   name: 'Your super app',
   port: 3000,
   "db": {
-    "host": "portfolio-cluster-0a3j5.mongodb.net",
+    "host": "localhost",
     "port": "27017",
     "name": "test",
-    "user": "root",
-    "password": "p3H7HIAbBlzDtE62",
+    "user": "",
+    "password": "",
   },
   "upload": "public/upload",
   "mail": {

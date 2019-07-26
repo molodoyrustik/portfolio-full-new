@@ -49,7 +49,7 @@ class App {
       run: () => {
         new Promise((resolve) => {
           if(process.env.NODE_ENV === 'production') {
-            this.mongoose = mongoose.connect(`mongodb+srv://${this.config.dbProd.user}:${this.config.dbProd.password}@${this.config.dbProd.host}/${this.config.dbProd.name}?retryWrites=true&w=majority`, {useNewUrlParser: true});
+            this.mongoose = mongoose.connect(`mongodb+srv://${this.config.db.user}:${this.config.db.password}@${this.config.db.host}/${this.config.db.name}?retryWrites=true&w=majority`, {useNewUrlParser: true});
           } else {
             this.mongoose = mongoose.connect(`mongodb://${this.config.db.host}:${this.config.db.port}/${this.config.db.name}`, {useNewUrlParser: true});
           }
@@ -69,8 +69,6 @@ class App {
     this.server = http.createServer(this.app);
     this.db = this.getDatabase();
 
-    
-
     this.setTemplateEngine();
     this.useStaticFiles();
 
@@ -86,7 +84,6 @@ class App {
     this.controllers = this.getControllers();
     this.log.trace('controllers', Object.keys(this.controllers));
     
-
     this.useMiddlewares();
     this.useRoutes();
 
